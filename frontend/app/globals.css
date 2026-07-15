@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fbff;
+  --color-border: #d7e0ec;
+  --color-text: #16213d;
+  --color-text-muted: #5d6b86;
+  --color-primary: #1f5eff;
+  --color-primary-strong: #164dde;
+  --color-accent: #0f8f7a;
+  --color-accent-alt: #2f7ef7;
+  --color-success: #10b981;
+  --color-warning: #ef9c31;
+  --color-ai-bg: #ecf4ff;
+  --shadow-soft: 0 18px 40px -28px rgba(18, 30, 58, 0.24);
+  --shadow-glow: 0 24px 50px -30px rgba(31, 94, 255, 0.3);
+}
+
+.dark {
+  --color-bg: #0a1128;
+  --color-surface: #111a3a;
+  --color-surface-alt: #17244c;
+  --color-border: #21305f;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-primary: #ff2a85;
+  --color-primary-strong: #f11073;
+  --color-accent: #ffd700;
+  --color-accent-alt: #9d00ff;
+  --color-success: #ffd700;
+  --color-warning: #ffb703;
+  --color-ai-bg: #2e1065;
+  --shadow-soft: 0 4px 18px -10px rgba(5, 9, 24, 0.65);
+  --shadow-glow: 0 4px 15px -3px rgba(157, 0, 255, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(30, 94, 255, 0.08), transparent 24%),
+    radial-gradient(circle at right, rgba(15, 143, 122, 0.05), transparent 26%),
+    var(--color-bg);
+  color: var(--color-text);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top, rgba(255, 42, 133, 0.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(157, 0, 255, 0.12), transparent 22%),
+    var(--color-bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(31, 94, 255, 0.16);
+}
