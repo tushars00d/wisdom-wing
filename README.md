@@ -1,6 +1,41 @@
 # Wisdom Wing
 
-Wisdom Wing is a college-focused collaboration platform where students can ask questions, connect with seniors and alumni, share resources, and discover relevant opportunities without the clutter of a typical social feed.
+Wisdom Wing is a dedicated, college-focused collaboration and knowledge-sharing platform designed to solve the critical problem of fragmented communication within university ecosystems. Currently, students struggle to find reliable answers, discover relevant opportunities, and connect with peers or alumni due to information being scattered across chaotic WhatsApp groups, generic social media, or outdated college portals. By consolidating discussions, resource sharing, and verified AI-driven answers into one secure environment, Wisdom Wing eliminates the noise, making it effortless for college communities to preserve institutional knowledge and foster meaningful academic networking.
+
+## Key Features
+
+- **Community-Driven Q&A Platform**
+  - Ask and answer questions specific to college life, academics, and placements.
+  - Supports anonymous posting to encourage open discussion on sensitive topics.
+- **AI-Powered RAG Auto-Answering**
+  - Uses a Retrieval-Augmented Generation (RAG) pipeline to instantly answer student questions.
+  - Dynamically routes queries between a "college mode" (grounded in verified college data via FAISS vector search) and an "open mode" for general knowledge.
+- **Advanced Hybrid Search**
+  - Combines MongoDB Atlas keyword search with semantic/vector search for highly accurate information retrieval.
+- **Secure Authentication & Access Control**
+  - Integrates Firebase Authentication (Email/Password & Google OAuth) to ensure only authorized students and alumni can access the platform.
+- **Modern, Intuitive User Interface**
+  - Built with Next.js and Tailwind CSS for a fast, responsive, and aesthetic "college dashboard" experience that avoids the clutter of traditional forums.
+
+## Design Decisions & Architecture
+
+- **Frontend**: Next.js and Tailwind CSS were chosen to deliver a highly interactive, server-side rendered application with rapid styling capabilities and excellent performance.
+- **Backend**: A Node.js/Express backend provides a robust and scalable API layer to manage authentication tokens, database operations, and asynchronous process spawning.
+- **Database**: MongoDB Atlas was selected for its flexible document structure and native support for both text and vector search, eliminating the need for a separate search engine.
+- **AI Pipeline**: Python with `google.generativeai` (Gemini Flash) and `FAISS`. Python was chosen for the AI pipeline due to its unmatched ecosystem for vector operations and machine learning integrations.
+
+### Challenges Faced & Architectural Evolutions
+
+1. **AI Hallucinations on College-Specific Queries**
+   - *Problem*: The AI would confidently invent answers about college policies (e.g., passing criteria or placement stats) when it didn't inherently know the answer.
+   - *Solution*: Researched RAG (Retrieval-Augmented Generation) and implemented a FAISS vectorstore in Python. The architecture was updated to scrape official college portals and Reddit, chunk the data, and strictly ground the AI's prompt in retrieved context, preventing hallucinations.
+2. **Handling Diverse Query Types (College vs. General)**
+   - *Problem*: Once strictly grounded, the AI refused to answer general programming or career questions (like "What is Image Segmentation?").
+   - *Solution*: Updated the system architecture to include a dual-routing mechanism. The Node backend now intelligently passes `--mode college` or `--mode open` arguments to the Python engine, allowing it to dynamically bypass the local vectorstore for general knowledge queries while remaining strict for college-specific ones.
+3. **API Rate Limiting and Model Instability**
+   - *Problem*: Hardcoding specific bleeding-edge Gemini model versions (like 2.0-flash) resulted in 404 and 429 quota errors on the free tier, breaking the auto-answer pipeline.
+   - *Solution*: Transitioned the architecture to use stable aliases like `gemini-flash-latest` for generation and `gemini-embedding-2` for high-dimensional vector creation. Implemented a robust fallback system in the Python pipeline that degrades gracefully to local `all-MiniLM` embeddings and deterministic text responses if API quotas are temporarily exhausted.
+
 
 ## Tech Stack
 
