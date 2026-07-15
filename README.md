@@ -1,6 +1,11 @@
 # Wisdom Wing
 
 Wisdom Wing is a dedicated, college-focused collaboration and knowledge-sharing platform designed to solve the critical problem of fragmented communication within university ecosystems. Currently, students struggle to find reliable answers, discover relevant opportunities, and connect with peers or alumni due to information being scattered across chaotic WhatsApp groups, generic social media, or outdated college portals. By consolidating discussions, resource sharing, and verified AI-driven answers into one secure environment, Wisdom Wing eliminates the noise, making it effortless for college communities to preserve institutional knowledge and foster meaningful academic networking.
+<img width="1600" height="943" alt="image" src="https://github.com/user-attachments/assets/b5dde60b-e0a5-4d36-8bf6-5d0554b910cd" />
+<img width="1044" height="781" alt="image" src="https://github.com/user-attachments/assets/63c2a3d9-76a3-4f26-a0b5-2821acd72b33" />
+<img width="1600" height="1239" alt="image" src="https://github.com/user-attachments/assets/b6806321-8e48-408d-b626-40eea6404d17" />
+<img width="1600" height="1060" alt="image" src="https://github.com/user-attachments/assets/16496480-fa27-443c-b193-809fc80eba7d" />
+<img width="790" height="693" alt="image" src="https://github.com/user-attachments/assets/47de9b23-07d8-45e9-8903-cb2b685cf7c9" />
 
 ## Key Features
 
